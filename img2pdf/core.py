@@ -12,7 +12,7 @@ def fld2pdf(folder: Path, out: str):
     
     files = [file for file in folder.glob(r'*') if re.match(r'.*\.(jpg|png|jpeg|webp)', file.name)]
     files.sort(key=lambda x: x.name)
-    pdf = folder / f'{out}.pdf'
+    pdf = folder / f'{out}-@Manga_Lover.pdf'
     img2pdf(files, pdf)
     return pdf
 
