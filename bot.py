@@ -394,11 +394,11 @@ async def send_manga_chapter(client, data, chat_id):
     options = options.output if options else (1 << 30) - 1
 
     error_caption = '\n'.join([
-        f'{chapter.manga.name} - {chapter.name}',
-        f'{chapter.get_url()}'
+        f'<b>🚨 {chapter.manga.name} - {chapter.name}</b>',
+        f'<b>➥@Manga_Manhwa_Hub</b>'
     ])
 
-    success_caption = f'{chapter.manga.name} - {chapter.name}\n'
+    success_caption = f'🚨 <b>{chapter.manga.name} - {chapter.name}</b>\n'
 
     download = not chapter_file
     download = download or options & OutputOptions.PDF and not chapter_file.file_id
@@ -421,9 +421,9 @@ async def send_manga_chapter(client, data, chat_id):
 
     if options & OutputOptions.Telegraph:
         success_caption += f'[Read on telegraph]({chapter_file.telegraph_url})\n'
-    success_caption += f'[Read on website]({chapter.get_url()})'
+    success_caption += f'<b>➥@Manga_Manhwa_Hub</b>'
 
-    ch_name = clean(f'{clean(chapter.manga.name, 25)} - {chapter.name}', 45)
+    ch_name = clean(f'{clean(chapter.manga.name, 15)} - {chapter.name}', 45)
 
     media_docs = []
 
